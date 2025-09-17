@@ -1,13 +1,19 @@
 <!doctype html>
-<html lang="en">
+<html class="overflow-x-hidden" lang="en">
     <head>
         <meta charset="utf-8" />
         <title>Hi - Imbjdd</title>
+        <link
+            href="{{get_url(path='styles/styles.css')}}"
+            rel="stylesheet"
+            type="text/css"
+        />
     </head>
 
-    <body>
+    <body class="bg-neutral-900 text-lg text-neutral-100/90">
         <section class="section">
-            <div class="container">
+            <div class="w-svw overflow-x-hidden">
+                <div class="w-full h-4 bg-teal-600"></div>
                 {% block content %} {% endblock content %}
             </div>
         </section>

@@ -1,4 +1,93 @@
 {% extends "base.html" %} {% block content %}
-<h1 class="title">This is my blog made with Zola.</h1>
-<p><a href="{{ get_url(path='@/blog/_index.md') }}">Posts</a>.</p>
+<div class="w-svw overflow-x-hidden px-96 py-20 flex flex-col gap-16">
+    <h1 class="text-4xl font-bold">Imbjdd</h1>
+    <div class="w-full flex gap-24">
+        <div>
+            <img
+                src="/moi.png"
+                width="200"
+                height="200"
+                class="aspect-square object-cover rounded-2xl"
+            />
+        </div>
+        <div class="flex flex-col gap-4">
+            <p>
+                8 Hackathons Prize Winner. I graduated from a Math BSc Sorbonne
+                University at 19. I love to build projects. AI/Web3/Math.
+                President of a university Chess Club.
+            </p>
+            <p>
+                Member of
+                <a href="https://eurotech-federation.com/"
+                    >EuroTech Federation</a
+                >
+                and
+                <a href="https://www.anomalie.space/"
+                    >Anomalie.space (Chapter 1)</a
+                >.
+            </p>
+            <p>
+                I’m a
+                <a href="https://en.wikipedia.org/wiki/Hackathon">Hackathon</a>
+                participant (<a href="https://github.com/imbjdd"
+                    >8 Hackathon wins</a
+                >) and <a href="https://hackthefork.com/">organizer</a>.
+            </p>
+            <p>
+                Check my
+                <a href="{{ get_url(path='@/blog/_index.md') }}">Articles</a>.
+            </p>
+        </div>
+    </div>
+    <div class="flex flex-col gap-4">
+        <h2 class="text-2xl font-bold">Projects I Contributed To</h2>
+        {% set data = load_data(path="content/data/projects.csv") %}
+        <div class="grid grid-cols-4 gap-4">
+            {% for project in data.records -%}
+            <div class="bg-neutral-800 rounded-lg px-2 pb-1">
+                <a href="{{ project[1] }}">{{ project[0] }}</a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="flex flex-col gap-4">
+        <h2 class="text-2xl font-bold">Talks I Gave</h2>
+        {% set data = load_data(path="content/data/talks.csv") %}
+        <div class="grid grid-cols-1 gap-4">
+            {% for talk in data.records -%}
+            <div class="">
+                <p>
+                    <span class="font-semibold">{{ talk[0] }}</span>,
+                    <a href="{{ talk[2] }}">{{ talk[1] }}</a>, {{ talk[3] }}
+                </p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="flex flex-col gap-4">
+        <h2 class="text-2xl font-bold">Hackathons I’ve participated in</h2>
+        {% set data = load_data(path="content/data/hackathons.csv") %}
+        <div class="grid grid-cols-3 gap-4">
+            {% for hackathon in data.records -%}
+            <div class="bg-neutral-800 rounded-lg px-2 pb-1">
+                <a href="{{ hackathon[1] }}">{{ hackathon[0] }}</a>{% if
+                hackathon[2] %}, {{ hackathon[2] }}{% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="flex flex-col gap-4">
+        <h2 class="text-2xl font-bold">Links</h2>
+        <div class="flex gap-4">
+            <div class="">
+                <a href="https://www.linkedin.com/in/salim-boujaddi/"
+                    >LinkedIn</a
+                >
+            </div>
+            <div class="">
+                <a href="https://github.com/imbjdd">GitHub</a>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock content %}
