@@ -1,10 +1,10 @@
 {% extends "base.html" %} {% block content %}
 <div class="w-svw overflow-x-hidden px-96 py-20 flex flex-col gap-16">
-    <h1 class="text-4xl font-bold">Imbjdd</h1>
+    <h1 class="text-4xl font-bold">Salim Boujaddi</h1>
     <div class="w-full flex gap-24">
         <div>
             <img
-                src="/moi.png"
+                src="/moi2.png"
                 width="200"
                 height="200"
                 class="aspect-square object-cover rounded-2xl"
@@ -12,9 +12,8 @@
         </div>
         <div class="flex flex-col gap-4">
             <p>
-                8 Hackathons Prize Winner. I graduated from a Math BSc Sorbonne
-                University at 19. I love to build projects. AI/Web3/Math.
-                President of a university Chess Club.
+                ML Engineer graduated from Sorbonne University. I love to build
+                projects. President of a university Chess Club.
             </p>
             <p>
                 Member of
@@ -30,17 +29,13 @@
                 I’m a
                 <a href="https://en.wikipedia.org/wiki/Hackathon">Hackathon</a>
                 participant (<a href="https://github.com/imbjdd"
-                    >8 Hackathon wins</a
+                    >9 Hackathon wins</a
                 >) and <a href="https://hackthefork.com/">organizer</a>.
-            </p>
-            <p>
-                Check my
-                <a href="{{ get_url(path='@/blog/_index.md') }}">Articles</a>.
             </p>
         </div>
     </div>
     <div class="flex flex-col gap-4">
-        <h2 class="text-2xl font-bold">Projects I Contributed To</h2>
+        <h2 class="text-2xl font-bold">Projects</h2>
         {% set data = load_data(path="content/data/projects.csv") %}
         <div class="grid grid-cols-4 gap-4">
             {% for project in data.records -%}
@@ -51,7 +46,7 @@
         </div>
     </div>
     <div class="flex flex-col gap-4">
-        <h2 class="text-2xl font-bold">Talks I Gave</h2>
+        <h2 class="text-2xl font-bold">Talks</h2>
         {% set data = load_data(path="content/data/talks.csv") %}
         <div class="grid grid-cols-1 gap-4">
             {% for talk in data.records -%}
@@ -65,7 +60,30 @@
         </div>
     </div>
     <div class="flex flex-col gap-4">
-        <h2 class="text-2xl font-bold">Hackathons I’ve participated in</h2>
+        <h2 class="text-2xl font-bold">Articles</h2>
+        {% set blog_section = get_section(path="blog/_index.md") %}
+        <div class="grid grid-cols-2 gap-4">
+            {% for page in blog_section.pages | slice(end=5) %}
+            <div class="">
+                <a href="{{ page.permalink | safe }}" class="block w-fit">
+                    <h3>
+                        <span class="font-semibold">{{ page.title }}</span>, {{
+                        page.date | date(format="%B %d, %Y") }}
+                    </h3>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+        <!--<div class="mt-2">
+            <a
+                href="{{ get_url(path='@/blog/_index.md') }}"
+                class="text-blue-400 hover:text-blue-300"
+                >View all articles</a
+            >
+            </div>-->
+    </div>
+    <div class="flex flex-col gap-4">
+        <h2 class="text-2xl font-bold">Hackathons</h2>
         {% set data = load_data(path="content/data/hackathons.csv") %}
         <div class="grid grid-cols-3 gap-4">
             {% for hackathon in data.records -%}
