@@ -12,8 +12,7 @@
         </div>
         <div class="flex flex-col gap-4 min-w-0">
             <p class="break-words">
-                ML Engineer graduated from Sorbonne University. I love to build
-                projects. President of a university Chess Club.
+                ML Engineer graduated from Sorbonne University.
             </p>
             <p class="break-words">
                 Member of
@@ -35,11 +34,19 @@
         </div>
     </div>
     <div class="flex flex-col gap-4">
+        <h2 class="text-2xl font-bold break-words">About Me</h2>
+        <div class="flex flex-col gap-4 min-w-0">
+            <p>I started playing <a href="https://worldofwarcraft.com/">World of Warcraft</a> on a private server when I was 7, and got into programming at 10. I finished my baccalauréat at 16, did a preparatory class at <a href="https://louislegrand.fr/">Louis-le-Grand</a>, and later graduated from <a href="https://www.sorbonne-universite.fr/">Sorbonne University</a>. Those early experiences sparked my love for problem-solving and technology, which eventually led me to become a Software Engineer.</p>
+            <p>I’m passionate about programming, mathematics, and tackling complex problems. I also enjoy playing chess: send me a message if you want to play! Beyond coding, I’m deeply interested in AI Safety and <a href="https://vitalik.eth.limo/general/2023/11/27/techno_optimism.html">d/acc</a>, as I believe technology has the potential to create one of the greatest positive impacts on the world, and I want to contribute to it.</p>
+        </div>
+    </div>
+    <div class="flex flex-col gap-4">
         <h2 class="text-2xl font-bold break-words">Projects</h2>
+        <p>In some projects, I only did minor contributions. They are marked with an asterisk (*).</p>
         {% set data = load_data(path="content/data/projects.csv") %}
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2">
             {% for project in data.records -%}
-            <div class="bg-neutral-800 rounded-lg px-2 pb-1 overflow-hidden">
+            <div class="overflow-hidden">
                 <a href="{{ project[1] }}" class="truncate block">{{ project[0] }}</a>
             </div>
             {% endfor %}
@@ -62,7 +69,7 @@
     <div class="flex flex-col gap-4">
         <h2 class="text-2xl font-bold break-words">Articles</h2>
         {% set blog_section = get_section(path="blog/_index.md") %}
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div class="grid grid-cols-1 lg:grid-cols-1 gap-4">
             {% for page in blog_section.pages | slice(end=5) %}
             <div class="overflow-hidden">
                 <a href="{{ page.permalink | safe }}" class="block break-words">
@@ -84,10 +91,11 @@
     </div>
     <div class="flex flex-col gap-4">
         <h2 class="text-2xl font-bold break-words">Hackathons</h2>
+        <p>I really like Hackathons. Check out this <a>article</a> to understand why.</p>
         {% set data = load_data(path="content/data/hackathons.csv") %}
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {% for hackathon in data.records -%}
-            <div class="bg-neutral-800 rounded-lg px-2 pb-1 overflow-hidden">
+            <div class="overflow-hidden">
                 <a href="{{ hackathon[1] }}" class="truncate block">{{ hackathon[0] }}
                     {% if
                 hackathon[2] %}<span class="break-words">, {{ hackathon[2] }}</span>{% endif %}
@@ -97,7 +105,7 @@
         </div>
     </div>
     <div class="flex flex-col gap-4">
-        <h2 class="text-2xl font-bold break-words">Links</h2>
+        <h2 class="text-2xl font-bold break-words">Contact</h2>
         <div class="flex gap-4 flex-wrap">
             <div>
                 <a href="https://www.linkedin.com/in/salim-boujaddi/"
@@ -107,6 +115,13 @@
             <div>
                 <a href="https://github.com/imbjdd">GitHub</a>
             </div>
+        </div>
+    </div>
+    <div class="flex flex-col gap-4">
+        <h2 class="text-2xl font-bold break-words">Misc</h2>
+        <div>
+            <p>This page is less than 50kb. It was made using <a href="https://getzola.org/">Zola</a>, a static website generator written in <a href="https://www.rust-lang.org/">Rust</a>. The website works without JavaScript.</p>
+            <p>The website is licensed under the <a href="https://opensource.org/licenses/MIT">MIT</a> License.</p>
         </div>
     </div>
 </div>
