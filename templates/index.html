@@ -1,21 +1,21 @@
 {% extends "base.html" %} {% block content %}
-<div class="w-svw overflow-x-hidden px-96 py-20 flex flex-col gap-16">
+<div class="px-4 sm:px-8 md:px-16 lg:px-24 xl:px-48 2xl:px-96 py-20 flex flex-col gap-16 w-full max-w-full overflow-hidden">
     <h1 class="text-4xl font-bold">Salim Boujaddi</h1>
-    <div class="w-full flex gap-12">
-        <div>
+    <div class="flex flex-col lg:flex-row gap-12 xl:gap-24">
+        <div class="flex-shrink-0">
             <img
                 src="/moi2.png"
                 width="400"
                 height="400"
-                class="aspect-square object-cover rounded-2xl"
+                class="aspect-square object-cover rounded-2xl w-full max-w-sm lg:w-38"
             />
         </div>
-        <div class="flex flex-col gap-4">
-            <p>
+        <div class="flex flex-col gap-4 min-w-0">
+            <p class="break-words">
                 ML Engineer graduated from Sorbonne University. I love to build
                 projects. President of a university Chess Club.
             </p>
-            <p>
+            <p class="break-words">
                 Member of
                 <a href="https://eurotech-federation.com/"
                     >EuroTech Federation</a
@@ -25,8 +25,8 @@
                     >Anomalie.space (Chapter 1)</a
                 >.
             </p>
-            <p>
-                I’m a
+            <p class="break-words">
+                I'm a
                 <a href="https://en.wikipedia.org/wiki/Hackathon">Hackathon</a>
                 participant (<a href="https://github.com/imbjdd"
                     >9 Hackathon wins</a
@@ -35,23 +35,23 @@
         </div>
     </div>
     <div class="flex flex-col gap-4">
-        <h2 class="text-2xl font-bold">Projects</h2>
+        <h2 class="text-2xl font-bold break-words">Projects</h2>
         {% set data = load_data(path="content/data/projects.csv") %}
-        <div class="grid grid-cols-4 gap-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {% for project in data.records -%}
-            <div class="bg-neutral-800 rounded-lg px-2 pb-1">
-                <a href="{{ project[1] }}">{{ project[0] }}</a>
+            <div class="bg-neutral-800 rounded-lg px-2 pb-1 overflow-hidden">
+                <a href="{{ project[1] }}" class="truncate block">{{ project[0] }}</a>
             </div>
             {% endfor %}
         </div>
     </div>
     <div class="flex flex-col gap-4">
-        <h2 class="text-2xl font-bold">Talks</h2>
+        <h2 class="text-2xl font-bold break-words">Talks</h2>
         {% set data = load_data(path="content/data/talks.csv") %}
         <div class="grid grid-cols-1 gap-4">
             {% for talk in data.records -%}
-            <div class="">
-                <p>
+            <div class="overflow-hidden">
+                <p class="break-words">
                     <span class="font-semibold">{{ talk[0] }}</span>,
                     <a href="{{ talk[2] }}">{{ talk[1] }}</a>, {{ talk[3] }}
                 </p>
@@ -60,13 +60,13 @@
         </div>
     </div>
     <div class="flex flex-col gap-4">
-        <h2 class="text-2xl font-bold">Articles</h2>
+        <h2 class="text-2xl font-bold break-words">Articles</h2>
         {% set blog_section = get_section(path="blog/_index.md") %}
-        <div class="grid grid-cols-2 gap-4">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
             {% for page in blog_section.pages | slice(end=5) %}
-            <div class="">
-                <a href="{{ page.permalink | safe }}" class="block w-fit">
-                    <h3>
+            <div class="overflow-hidden">
+                <a href="{{ page.permalink | safe }}" class="block break-words">
+                    <h3 class="break-words">
                         <span class="font-semibold">{{ page.title }}</span>, {{
                         page.date | date(format="%B %d, %Y") }}
                     </h3>
@@ -83,26 +83,28 @@
             </div>-->
     </div>
     <div class="flex flex-col gap-4">
-        <h2 class="text-2xl font-bold">Hackathons</h2>
+        <h2 class="text-2xl font-bold break-words">Hackathons</h2>
         {% set data = load_data(path="content/data/hackathons.csv") %}
-        <div class="grid grid-cols-3 gap-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {% for hackathon in data.records -%}
-            <div class="bg-neutral-800 rounded-lg px-2 pb-1">
-                <a href="{{ hackathon[1] }}">{{ hackathon[0] }}</a>{% if
-                hackathon[2] %}, {{ hackathon[2] }}{% endif %}
+            <div class="bg-neutral-800 rounded-lg px-2 pb-1 overflow-hidden">
+                <a href="{{ hackathon[1] }}" class="truncate block">{{ hackathon[0] }}
+                    {% if
+                hackathon[2] %}<span class="break-words">, {{ hackathon[2] }}</span>{% endif %}
+                </a>
             </div>
             {% endfor %}
         </div>
     </div>
     <div class="flex flex-col gap-4">
-        <h2 class="text-2xl font-bold">Links</h2>
-        <div class="flex gap-4">
-            <div class="">
+        <h2 class="text-2xl font-bold break-words">Links</h2>
+        <div class="flex gap-4 flex-wrap">
+            <div>
                 <a href="https://www.linkedin.com/in/salim-boujaddi/"
                     >LinkedIn</a
                 >
             </div>
-            <div class="">
+            <div>
                 <a href="https://github.com/imbjdd">GitHub</a>
             </div>
         </div>

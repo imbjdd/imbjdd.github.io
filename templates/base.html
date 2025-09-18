@@ -1,7 +1,8 @@
 <!doctype html>
-<html class="overflow-x-hidden" lang="en">
+<html lang="en">
     <head>
         <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Salim Boujaddi</title>
         <link
             href="{{get_url(path='styles/styles.css')}}"
@@ -10,9 +11,9 @@
         />
     </head>
 
-    <body class="bg-neutral-900 text-lg text-neutral-100/90">
-        <section class="section">
-            <div class="w-svw overflow-x-hidden">
+    <body class="bg-neutral-900 text-lg text-neutral-100/90 overflow-x-hidden">
+        <section>
+            <div class="overflow-x-hidden">
                 <div class="w-full h-4 bg-teal-600"></div>
                 {% block content %} {% endblock content %}
             </div>
