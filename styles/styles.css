@@ -2,5 +2,5 @@
 @plugin "@tailwindcss/typography";
 
 a {
-    @apply border-b border-dotted hover:border-blue-600 text-teal-800 hover:text-blue-600 transition-colors w-fit border-teal-800;
+    @apply underline underline-offset-4 text-black hover:text-blue-600 transition-colors w-fit;
 }
