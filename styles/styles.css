@@ -2,5 +2,5 @@
 @plugin "@tailwindcss/typography";
 
 a {
-    @apply underline underline-offset-4 text-black hover:text-blue-600 transition-colors w-fit;
+    @apply underline underline-offset-4 text-[#0a4a55] hover:text-blue-600 transition-colors w-fit;
 }
