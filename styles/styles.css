@@ -1,5 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
+
+
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Crimson Text', serif;
+    color: black;
+}
+
+p, li, blockquote, cite, strong, em, code, kbd, samp, pre, small, a {
+    font-family: 'Crimson Pro', serif;
+}
 
 a {
     @apply underline underline-offset-4 text-[#0a4a55] hover:text-blue-600 transition-colors w-fit;
