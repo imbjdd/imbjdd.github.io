@@ -6,13 +6,13 @@
 
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Crimson Text', serif;
-    color: black;
 }
 
 p, li, blockquote, cite, strong, em, code, kbd, samp, pre, small, a {
-    font-family: 'Crimson Pro', serif;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.25rem;
 }
 
 a {
-    @apply underline underline-offset-4 text-[#0a4a55] hover:text-blue-600 transition-colors w-fit;
+    @apply border-b-2 border-b-black/85 border-dotted hover:text-blue-600 hover:border-b-blue-600 transition-colors w-fit;
 }
