@@ -1193,11 +1193,13 @@
 
 h1, h2, h3, h4, h5, h6 {
   font-family: Crimson Text, serif;
+  color: #D52A2A;
 }
 
 p, li, blockquote, cite, strong, em, code, kbd, samp, pre, small, a {
   font-family: Inter, sans-serif;
   font-size: 1.25rem;
+  font-weight: lighter;
 }
 
 a {
