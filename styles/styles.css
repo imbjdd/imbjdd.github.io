@@ -6,7 +6,7 @@
 
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Crimson Text', serif;
-    color: #D52A2A;
+    color: black;
 
 }
 
@@ -17,6 +17,10 @@ p, li, blockquote, cite, strong, em, code, kbd, samp, pre, small, a {
 }
 
 a {
-    @apply border-b-2 border-b-black/85 border-dotted hover:text-blue-600 hover:border-b-blue-600 transition-colors w-fit;
+    @apply bg-yellow-200/60 hover:bg-yellow-300/80 transition-colors px-0.5 -mx-0.5;
     text-decoration: none;
+}
+
+a.link-plain {
+    @apply bg-transparent hover:bg-transparent hover:text-blue-600 px-0 mx-0;
 }

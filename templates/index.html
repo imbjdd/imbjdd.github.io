@@ -1,6 +1,6 @@
 {% extends "base.html" %} {% block content %}
-<div class="px-4 sm:px-8 md:px-16 lg:px-24 xl:px-48 2xl:px-96 pt-20 pb-16 flex flex-col gap-8 w-full max-w-full overflow-hidden">
-    <a href="/"><h1 class="text-5xl font-bold">Salim Boujaddi</h1></a>
+<div class="px-4 sm:px-8 pt-20 pb-48 flex flex-col gap-8 w-full max-w-3xl mx-auto">
+    <h1 class="text-5xl font-bold">Salim Boujaddi</h1>
     <div class="flex flex-col lg:flex-row gap-12 xl:gap-24">
         <div class="flex flex-col gap-4 min-w-0">
             <p class="break-words">
@@ -33,7 +33,7 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2">
             {% for project in data.records -%}
             <div class="overflow-hidden">
-                <a href="{{ project[1] }}" class="truncate block">{{ project[0] }}</a>
+                <a href="{{ project[1] }}" class="truncate block link-plain">{{ project[0] }}</a>
             </div>
             {% endfor %}
         </div>
@@ -58,7 +58,7 @@
         <div class="grid grid-cols-1 lg:grid-cols-1 gap-4">
             {% for page in blog_section.pages | slice(end=5) %}
             <div class="overflow-hidden">
-                <a href="{{ page.permalink | safe }}" class="block break-words">
+                <a href="{{ page.permalink | safe }}" class="block break-words link-plain">
                     <p class="break-words">
                         <span class="">{{ page.title }}</span>, {{
                         page.date | date(format="%B %d, %Y") }}
@@ -82,7 +82,7 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {% for hackathon in data.records -%}
             <div class="overflow-hidden">
-                <a href="{{ hackathon[1] }}" class="truncate block">{{ hackathon[0] }}
+                <a href="{{ hackathon[1] }}" class="truncate block link-plain">{{ hackathon[0] }}
                     {% if
                 hackathon[2] %}<span class="break-words">, {{ hackathon[2] }}</span>{% endif %}
                 </a>
@@ -94,12 +94,12 @@
         <h2 class="text-3xl font-bold break-words">Contact</h2>
         <div class="flex gap-4 flex-wrap">
             <div>
-                <a href="https://www.linkedin.com/in/salim-boujaddi/"
+                <a href="https://www.linkedin.com/in/salim-boujaddi/" class="link-plain"
                     >LinkedIn</a
                 >
             </div>
             <div>
-                <a href="https://github.com/imbjdd">GitHub</a>
+                <a href="https://github.com/imbjdd" class="link-plain">GitHub</a>
             </div>
         </div>
     </div>  
